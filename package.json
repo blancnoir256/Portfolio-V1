@@ -1,0 +1,45 @@
+{
+    "name": "portfolio-v1",
+    "version": "1.0.0",
+    "description": "BN256 Portfolio - Modern containerized website with Vue.js frontend and Go backend",
+    "private": true,
+    "type": "module",
+    "workspaces": [
+        "apps/frontend"
+    ],
+    "scripts": {
+        "dev": "npm run dev --workspace=apps/frontend",
+        "build": "npm run build --workspace=apps/frontend",
+        "build:docker": "docker build -f infra/docker/Dockerfile -t portfolio:latest .",
+        "preview": "npm run preview --workspace=apps/frontend",
+        "lint": "npm run lint --workspace=apps/frontend",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "type-check": "npm run type-check --workspace=apps/frontend",
+        "test": "npm run test --workspace=apps/frontend",
+        "clean": "npm run clean --workspace=apps/frontend && docker system prune -f",
+        "prepare": "husky install || true"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "prettier": "^3.0.0"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=9.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/blancnoir256/Portfolio-V1.git"
+    },
+    "keywords": [
+        "portfolio",
+        "vue",
+        "golang",
+        "kubernetes",
+        "docker",
+        "monorepo"
+    ],
+    "author": "BN256",
+    "license": "MIT"
+}

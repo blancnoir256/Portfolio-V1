@@ -1,0 +1,99 @@
+# LLMに作ってもらいました。便利。
+# Portfolio Project - Comprehensive .gitattributes
+# モノレポ全体の改行コード・言語検知・diff設定
+
+# === Default Settings ===
+# All text files use LF line endings
+* text=auto eol=lf
+
+# === Language Detection ===
+# Frontend (Vue.js/TypeScript/JavaScript)
+apps/frontend/**/*.vue linguist-language=Vue
+apps/frontend/**/*.ts linguist-language=TypeScript
+apps/frontend/**/*.js linguist-language=JavaScript
+apps/frontend/**/*.css linguist-language=CSS
+apps/frontend/**/*.scss linguist-language=SCSS
+apps/frontend/**/*.sass linguist-language=Sass
+
+# Backend (Go)
+apps/static-server/**/*.go linguist-language=Go
+apps/backend/**/*.go linguist-language=Go
+
+# Infrastructure (YAML/Dockerfile)
+infra/**/*.yaml linguist-language=YAML
+infra/**/*.yml linguist-language=YAML
+infra/**/Dockerfile linguist-language=Dockerfile
+
+# Documentation
+docs/**/*.md linguist-language=Markdown
+*.md linguist-language=Markdown
+
+# === Binary Files ===
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.webp binary
+
+# Certificates and Keys (should be in .gitignore anyway)
+*.crt binary
+*.key binary
+*.pem binary
+*.p12 binary
+*.pfx binary
+
+# Archives
+*.tar binary
+*.gz binary
+*.zip binary
+*.7z binary
+
+# Fonts
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+
+# === Specific File Handling ===
+# Lock files should preserve exact formatting
+package-lock.json -diff
+yarn.lock -diff
+go.sum -diff
+
+# Generated files
+apps/frontend/dist/** -diff linguist-generated
+apps/frontend/node_modules/** linguist-vendored
+**/node_modules/** linguist-vendored
+
+# Large data files
+*.log -diff
+tree.txt -diff
+
+# === Line Ending Exceptions ===
+# Windows batch files
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Shell scripts (force LF)
+*.sh text eol=lf
+
+# === Special Diff Settings ===
+# Go files with better diff heuristics
+*.go diff=golang
+
+# Vue SFC files
+*.vue diff=html
+
+# Configuration files
+*.yaml diff=yaml
+*.yml diff=yaml
+*.json diff=json
+
+# === Security ===
+# Prevent secrets from being accidentally committed (belt and suspenders)
+*.env binary
+.env.* binary

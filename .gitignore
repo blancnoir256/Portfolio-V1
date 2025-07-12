@@ -1,0 +1,102 @@
+# LLMに作ってもらいました。便利。
+# Portfolio Project - Comprehensive .gitignore
+
+# Workspaces and package management
+**/package-lock.json  # Keep only root package-lock.json  
+!package-lock.json    # Allow root package-lock.json
+**/yarn.lock
+**/pnpm-lock.yaml
+
+# Secrets and sensitive files
+secrets/
+*.key
+*.crt
+*.pem
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Frontend (Node.js/Vue.js)
+node_modules/
+apps/frontend/node_modules/
+apps/frontend/dist/
+apps/frontend/dist-ssr/
+apps/frontend/coverage/
+coverage/
+apps/frontend/*.local
+apps/frontend/.DS_Store
+apps/frontend/*.tsbuildinfo
+
+# Vite and build tools
+**/dist/
+**/dist-ssr/
+**/.vite/
+**/coverage/
+
+# Cypress testing
+**/cypress/videos/
+**/cypress/screenshots/
+
+# Backend (Go)
+apps/static-server/.env
+apps/static-server/portfolio
+apps/static-server/*.exe
+apps/static-server/*.test
+apps/static-server/*.prof
+
+# Build artifacts
+**/dist/
+**/build/
+**/target/
+
+# IDE and editor files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# OS generated files
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+tree.txt
+
+# Docker
+.dockerignore
+*.tar
+
+# Kubernetes secrets (keep manifests, exclude actual secrets)
+infra/manifest/secret/
+
+# Development tools
+tools/temp/
+tools/cache/
+
+# Documentation
+docs/
+
+# ignore
+_*

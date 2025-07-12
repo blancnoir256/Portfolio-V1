@@ -1,0 +1,103 @@
+# Portfolio Project - Comprehensive EditorConfig
+# エディタ間でのコーディングスタイル統一
+
+root = true
+
+# === Default Settings ===
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# === Frontend (JavaScript/TypeScript/Vue) ===
+[*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,vue}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# === Frontend Styles ===
+[*.{css,scss,sass,less,styl,postcss}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# === Backend (Go) ===
+[*.go]
+indent_style = tab
+indent_size = 4
+max_line_length = 120
+
+# === Configuration Files ===
+[*.{json,jsonc}]
+indent_style = space
+indent_size = 2
+
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
+[*.toml]
+indent_style = space
+indent_size = 2
+
+# === Infrastructure ===
+[Dockerfile*]
+indent_style = space
+indent_size = 2
+
+[docker-compose*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# === Documentation ===
+[*.md]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+trim_trailing_whitespace = false  # Markdownでは末尾スペースが意味を持つ場合がある
+
+[*.{txt,log}]
+trim_trailing_whitespace = false
+insert_final_newline = false
+
+# === Environment Files ===
+[.env*]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+# === Shell Scripts ===
+[*.{sh,bash,zsh}]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.{bat,cmd}]
+indent_style = space
+indent_size = 2
+end_of_line = crlf
+
+# === Package Managers ===
+[package.json]
+indent_style = space
+indent_size = 2
+
+[package-lock.json]
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+
+[go.{mod,sum}]
+indent_style = tab
+
+# === Git Configuration ===
+[.git*]
+indent_style = space
+indent_size = 2
+
+# === License and Legal ===
+[{LICENSE,COPYING,COPYRIGHT}]
+indent_style = space
+indent_size = 2
+insert_final_newline = true

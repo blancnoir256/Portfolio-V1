@@ -1,0 +1,13 @@
+resources:
+  - ./deployment.yaml
+  - ./service.yaml
+  - ./ingress.yaml
+
+# TLS Secret Generator
+# Note: 'secrets' is a symlink to ../../secrets/
+secretGenerator:
+- name: portfolio-tls-secret
+  type: kubernetes.io/tls
+  files:
+  - tls.crt=secrets/SSL-server-certificate/tls.crt
+  - tls.key=secrets/SSL-server-certificate/tls.key
