@@ -11,7 +11,7 @@ FROM golang:1.24-alpine AS backend-builder
 WORKDIR /app
 COPY apps/static-server/go.mod apps/static-server/go.sum ./
 RUN go mod download
-COPY apps/static-server/ ./
+COPY apps/static-server/main.go ./
 RUN go build -o /server/main .
 
 # Stage 3: Final image
@@ -29,6 +29,8 @@ RUN chown -R appuser:appgroup /app
 
 USER appuser
 
+ENV APP_DIR=/app/dist
+
 EXPOSE 8080
 
-CMD ["/app/main", "-appDir", "/app/dist"]
+CMD ["/app/main"]

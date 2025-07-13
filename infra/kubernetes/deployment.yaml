@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: portfolio:1.1.0
+        image: portfolio:1.1.1
         imagePullPolicy: Never
         ports:
         - containerPort: 8080

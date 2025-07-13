@@ -69,7 +69,7 @@ func commandLineArguments() {
 func envLoadAndSet() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Println("Warning: .env file not found, using environment variables")
 	}
 	getEnv()
 }
@@ -78,6 +78,15 @@ func envLoadAndSet() {
 func getEnv() {
 	appDir = os.Getenv("APP_DIR")
 	secretDir = os.Getenv("SECRET_DIR")
+	if isDev {
+		if len(appDir) == 0 || len(secretDir) == 0 {
+			log.Fatalln("environment file is not found.")
+		}
+	} else {
+		if len(appDir) == 0 {
+			log.Fatalln("APP_DIR is not found.")
+		}
+	}
 }
 
 // ping確認 後でいい感じに実装
